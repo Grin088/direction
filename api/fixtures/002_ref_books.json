@@ -1,0 +1,20 @@
+[
+  {
+    "model": "ref_books.refbook",
+    "pk": 1,
+    "fields": {
+      "code": "1",
+      "name": "Специальности медицинских работников.",
+      "description": ""
+    }
+  },
+  {
+    "model": "ref_books.refbook",
+    "pk": 2,
+    "fields": {
+      "code": "2",
+      "name": "Оклады медицинских работников",
+      "description": ""
+    }
+  }
+]

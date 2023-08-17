@@ -1,0 +1,74 @@
+[
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 1,
+    "fields": {
+      "ref_book_version_id": 2,
+      "code": "1",
+      "value": "Терапевт"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 2,
+    "fields": {
+      "ref_book_version_id": 2,
+      "code": "2",
+      "value": "Травмотолог"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 3,
+    "fields": {
+      "ref_book_version_id": 2,
+      "code": "3",
+      "value": "Хирург"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 4,
+    "fields": {
+      "ref_book_version_id": 1,
+      "code": "1",
+      "value": "Врач"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 5,
+    "fields": {
+      "ref_book_version_id": 1,
+      "code": "2",
+      "value": "Заведующий"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 6,
+    "fields": {
+      "ref_book_version_id": 1,
+      "code": "3",
+      "value": "Медсестра"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 7,
+    "fields": {
+      "ref_book_version_id": 3,
+      "code": "1",
+      "value": "150000"
+    }
+  },
+  {
+    "model": "ref_books.refbookelement",
+    "pk": 8,
+    "fields": {
+      "ref_book_version_id": 3,
+      "code": "2",
+      "value": "120000"
+    }
+  }
+]
