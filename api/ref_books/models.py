@@ -18,11 +18,15 @@ class RefBook(models.Model):
     def current_version(self):
         """Свойство для вывода текущей версии справочника"""
         today = datetime.date.today()
-        version = RefBookVersion.objects.filter(ref_book_id=self.id, start_date__lte=today).last()
+        version = RefBookVersion.objects.\
+            filter(
+                ref_book_id=self.id,
+                start_date__lte=today)\
+            .order_by("start_date").last()
         return version
 
     def __str__(self):
-        return f"{self.pk}"
+        return f"id: {self.pk}, код: {self.code}, наименование: {self.name}"
 
 
 class RefBookVersion(models.Model):
@@ -41,7 +45,7 @@ class RefBookVersion(models.Model):
     start_date = models.DateField(null=True, blank=True, verbose_name=_('дата начала действия версии'))
 
     def __str__(self):
-        return f"{self.version}"
+        return f"id {self.id},  версия {self.version}, справочник: {self.ref_book_id.name}"
 
 
 class RefBookElement(models.Model):

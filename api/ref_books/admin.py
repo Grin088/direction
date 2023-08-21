@@ -70,7 +70,7 @@ class DirectionVersionAdmin(admin.ModelAdmin):
         return obj.ref_book_id.code
 
     ref_book_name.short_description = _('наименование справочника')
-    ref_book_name.short_description = _('код справочника')
+    ref_book_code.short_description = _('код справочника')
 
 
 @admin.register(RefBookElement)

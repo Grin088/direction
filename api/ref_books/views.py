@@ -26,9 +26,26 @@ class DirectionElementListView(generics.ListAPIView):
     serializer_class = DirectionElementSerializer
     filterset_class = DirectionElementFilter
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter(
+                'id',
+                openapi.IN_PATH,
+                description='id',
+                type=openapi.TYPE_INTEGER,
+                required=True
+            ),
+        ]
+    )
+    def get(self, *args, **kwargs):
+
+        return super().get(*args, *kwargs)
+
     def get_queryset(self):
         """Пользовательский метод для получения списка значений"""
-
+        id_ = self.kwargs.get("id")
+        if not id_.isdigit():
+            raise ValidationError(code=400, detail="Введите корректное значение параметра id в url")
         ref_book_id = self.kwargs['id']
         ref_book = get_object_or_404(RefBook, id=ref_book_id)
         version = self.request.query_params.get('version', None)
@@ -46,6 +63,13 @@ class CheckElementView(DirectionElementListView):
     @swagger_auto_schema(
         manual_parameters=[
             openapi.Parameter(
+                'id',
+                openapi.IN_PATH,
+                description='id',
+                type=openapi.TYPE_INTEGER,
+                required=True
+            ),
+            openapi.Parameter(
                 'code',
                 openapi.IN_QUERY,
                 description='Ref book element code',
@@ -61,13 +85,12 @@ class CheckElementView(DirectionElementListView):
             ),
         ]
     )
-    def get(self, request, *args, **kwargs):
+    def get(self, *args, **kwargs):
         """Метод обработки запроса GET"""
-        return self.list(request, *args, **kwargs)
+        return super().get(*args, **kwargs)
 
     def get_queryset(self):
         """Пользовательский метод для получения списка значений"""
-
         queryset = super().get_queryset()
         code = self.request.query_params.get('code', None)
         value = self.request.query_params.get('value', None)
